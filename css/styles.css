@@ -287,7 +287,7 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
 .hero {
   position: relative;
   min-height: 100vh;
-  padding-top: var(--nav-height);
+  padding: calc(var(--nav-height) + 4rem) 0 8rem;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -315,7 +315,6 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
 .hero-content {
   position: relative;
   z-index: 2;
-  padding-bottom: 5rem;
 }
 
 .hero-eyebrow {
@@ -338,8 +337,8 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
 }
 
 .hero h1 {
-  font-size: clamp(3.5rem, 8.5vw, 9rem);
-  line-height: 0.95;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.98;
   letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
   max-width: 900px;
