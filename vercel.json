@@ -1,18 +1,15 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
-      ]
-    },
-    {
-      "source": "/public/images/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, immutable" }
-      ]
-    }
+  "version": 2,
+  "builds": [
+    { "src": "**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/compensation", "dest": "/compensation.html" },
+    { "src": "/training", "dest": "/training.html" },
+    { "src": "/technology", "dest": "/technology.html" },
+    { "src": "/marketing", "dest": "/marketing.html" },
+    { "src": "/culture", "dest": "/culture.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
