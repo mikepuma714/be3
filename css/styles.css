@@ -315,6 +315,7 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
 .hero-content {
   position: relative;
   z-index: 2;
+  padding-bottom: 5rem;
 }
 
 .hero-eyebrow {
