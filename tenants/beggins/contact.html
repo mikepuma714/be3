@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule An Interview &mdash; Century 21 Beggins</title>
+  <meta name="description" content="Ready to join Century 21 Beggins? Schedule An Interview with our team today. Let's talk about your future in real estate and the Lifestyle you want to build.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .contact-option {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .contact-option:hover {
+      border-color: rgba(182,168,136,0.4);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .contact-option-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-option-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .contact-option-text {
+      color: var(--color-light);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-info-icon {
+      width: 44px; height: 44px;
+      background: var(--color-gold-dim);
+      border: 1px solid rgba(182,168,136,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+    }
+    .contact-info-value {
+      font-size: 1rem;
+      color: var(--color-white);
+      font-weight: 500;
+    }
+    .contact-info-value a {
+      color: var(--color-gold);
+      transition: opacity 0.2s;
+    }
+    .contact-info-value a:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<!-- ======== NAVIGATION ======== -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <img src="/public/images/begginsgold.png" alt="Century 21 Beggins" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="/compensation">Compensation</a>
+    <a href="/training">Training</a>
+    <a href="/technology">Technology</a>
+    <a href="/marketing">Marketing</a>
+    <a href="/culture">Culture</a>
+    <a href="/contact" class="active">Contact</a>
+    <a href="/signup" class="nav-cta">Join Beggins</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="/">Home</a>
+  <a href="/compensation">Compensation</a>
+  <a href="/training">Training</a>
+  <a href="/technology">Technology</a>
+  <a href="/marketing">Marketing</a>
+  <a href="/culture">Culture</a>
+  <a href="/signup" class="nav-cta-mobile">Join Beggins &rarr;</a>
+</div>
+
+<!-- ======== PAGE HERO ======== -->
+<section class="page-hero" data-parallax-section>
+  <div class="page-hero-bg" data-parallax="0.3"
+    style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80')">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="page-hero-eyebrow">Schedule An Interview</div>
+    <h1>Let&rsquo;s Have An<br><span class="text-gold">Honest Conversation.</span></h1>
+    <p class="page-hero-sub">
+      No pressure. No pitch. Just a real discussion about where you are, 
+      where you want to go, and whether Beggins is the right fit to get you there.
+    </p>
+    <div class="hero-actions">
+      <a href="#schedule" class="btn btn-gold btn-lg">Schedule An Interview</a>
+      <a href="mailto:MikePuma@c21be.com" class="btn btn-outline-white btn-lg">Send An Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CONTACT OPTIONS ======== -->
+<section class="section section-dark" id="schedule">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Connect With Us</div>
+      <h2 class="section-title">Three Ways To Start The Conversation</h2>
+      <p class="section-sub">
+        We make it easy. Pick the option that works best for you and we'll 
+        take it from there.
+      </p>
+    </div>
+    <div class="grid-3" style="margin-bottom:5rem;">
+      <div class="contact-option reveal delay-1">
+        <div class="contact-option-icon">📅</div>
+        <div class="contact-option-title">Schedule An Interview</div>
+        <p class="contact-option-text">
+          Book a time directly on our calendar. We'll send you a confirmation 
+          with Zoom link and a short questionnaire to make the most of our time together.
+        </p>
+        <a href="https://calendly.com/mikepuma" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;">
+          Book A Time &rarr;
+        </a>
+      </div>
+      <div class="contact-option reveal delay-2" style="border-color:rgba(182,168,136,0.35);">
+        <div class="contact-option-icon">📧</div>
+        <div class="contact-option-title">Send An Email</div>
+        <p class="contact-option-text">
+          Prefer to start in writing? Send Mike a direct email with your questions, 
+          your background, and what you're looking for in a brokerage.
+        </p>
+        <a href="mailto:MikePuma@c21be.com" class="btn btn-outline" style="width:100%;justify-content:center;">
+          Email Mike &rarr;
+        </a>
+      </div>
+      <div class="contact-option reveal delay-3">
+        <div class="contact-option-icon">📝</div>
+        <div class="contact-option-title">Fill Out The Form</div>
+        <p class="contact-option-text">
+          Not quite ready for a call yet? Fill out the form below and we'll 
+          reach out within one business day with next steps.
+        </p>
+        <a href="#form" class="btn btn-outline-white" style="width:100%;justify-content:center;">
+          Fill Out Form &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.05em;margin-bottom:2rem;">Contact Information</div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">👤</div>
+          <div>
+            <div class="contact-info-label">Chief Marketing Officer</div>
+            <div class="contact-info-value">Mike Puma, Century 21 Beggins</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <div class="contact-info-label">Phone / Text</div>
+            <div class="contact-info-value"><a href="tel:8137316171">813-731-6171</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📧</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value"><a href="mailto:MikePuma@c21be.com">MikePuma@c21be.com</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🌐</div>
+          <div>
+            <div class="contact-info-label">Current Website</div>
+            <div class="contact-info-value"><a href="https://joinc21beggins.com" target="_blank">joinc21beggins.com</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#x1F3E2;</div>
+          <div>
+            <div class="contact-info-label">Our Offices</div>
+            <div class="contact-info-value">Apollo Beach &middot; South Tampa &middot; Brandon &middot; Indian Rocks Beach &middot; Madeira Beach &middot; St. Pete Beach &middot; Sun City Center</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#x1F4CD;</div>
+          <div>
+            <div class="contact-info-label">Coverage Area</div>
+            <div class="contact-info-value">7 Office Locations Across Tampa Bay &amp; Central Florida</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">⏰</div>
+          <div>
+            <div class="contact-info-label">Response Time</div>
+            <div class="contact-info-value">Within 1 business day</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;padding:1.5rem;background:var(--color-gold-dim);border:1px solid rgba(182,168,136,0.25);border-radius:6px;">
+          <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:0.75rem;">Good To Know</div>
+          <p style="color:var(--color-light);font-size:0.9rem;line-height:1.75;">
+            We hold daily live training every Monday&ndash;Friday at 9 AM ET on Zoom. 
+            If you want to check us out before committing, <a href="mailto:MikePuma@c21be.com" style="color:var(--color-gold);">email Mike</a> or 
+            call/text <a href="tel:8137316171" style="color:var(--color-gold);">813-731-6171</a> and 
+            ask to sit in on a morning session. It's the best way to experience our culture firsthand.
+          </p>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="reveal-right" id="form">
+        <div class="calc-card">
+          <div style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.05em;margin-bottom:2rem;">Tell Us About You</div>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="fname">First Name</label>
+              <input type="text" id="fname" class="form-input" placeholder="Jane" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lname">Last Name</label>
+              <input type="text" id="lname" class="form-input" placeholder="Smith" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" id="email" class="form-input" placeholder="jane@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-input" placeholder="(555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="experience">Years of Real Estate Experience</label>
+              <select id="experience" class="form-select">
+                <option value="">Select...</option>
+                <option value="new">I'm brand new (pre-license or just licensed)</option>
+                <option value="1-2">1&ndash;2 years</option>
+                <option value="3-5">3&ndash;5 years</option>
+                <option value="5-10">5&ndash;10 years</option>
+                <option value="10+">10+ years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="market">Your Market / City</label>
+              <input type="text" id="market" class="form-input" placeholder="e.g. Tampa, Miami, Orlando...">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">What Are You Looking For?</label>
+              <textarea id="message" class="form-textarea" placeholder="Tell us a little about your current situation and what you're hoping to find in a brokerage..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:1.1rem;">
+              Send My Information
+            </button>
+            <p style="text-align:center;font-size:0.78rem;color:var(--color-muted);margin-top:1rem;">
+              No spam. No pressure. Just a conversation about your future.
+            </p>
+          </form>
+          <div id="formSuccess" style="display:none;text-align:center;padding:3rem 2rem;">
+            <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
+            <div style="font-family:var(--font-display);font-size:2rem;letter-spacing:0.05em;margin-bottom:0.75rem;color:var(--color-gold);">Message Sent!</div>
+            <p style="color:var(--color-light);line-height:1.75;">
+              We'll be in touch within 1 business day. In the meantime, 
+              feel free to explore the rest of the site or reach out to schedule directly.
+            </p>
+            <a href="/contact" class="btn btn-outline" style="margin-top:1.5rem;">
+              Go Back &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FAQ ======== -->
+<section class="section section-black">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Still Have Questions?</div>
+      <h2 class="section-title">Quick Answers</h2>
+    </div>
+
+    <div class="faq-container reveal">
+      <div class="faq-item">
+        <button class="faq-btn">
+          What happens after I Schedule An Interview?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>You'll receive a confirmation email with your Zoom link and a short questionnaire to help us prepare for the call. On the call, we'll learn more about your background and goals, walk you through our model, and answer every question you have. No commitments required.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          How long does the joining process take?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>Once you decide to join, onboarding is fast. Most agents are fully set up &mdash; CRM, website, email, training access &mdash; within 3&ndash;5 business days of joining. Your first morning training session can be the very next day.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          Do I need to transfer my license before the call?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>Absolutely not. The call is just a conversation. If you decide Beggins is right for you, we'll guide you through the transfer process step by step. It's simpler than most agents expect.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          I'm at a different brokerage &mdash; can I switch?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>Yes. License transfers are completely normal in real estate. We'll help you navigate the process professionally. Timing can usually be coordinated around your active transactions to minimize disruption.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          What if I'm not yet licensed?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>We love talking to people who are pre-license or in the process of getting licensed. We can point you in the right direction for your Florida real estate license and have everything ready to go the moment you pass your exam.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          Is there a joining fee?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>There is a small setup fee to get your technology stack configured &mdash; CRM, website, email, and all your tools ready to go. This is minimal compared to what other brokerages charge and to the value you immediately receive. Specific details are discussed on the call.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          What if I have a question that isn't answered here?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-body">
+          <p>Email <a href="mailto:MikePuma@c21be.com">MikePuma@c21be.com</a> or call/text <a href="tel:8137316171">813-731-6171</a> directly. Mike reads and responds to agent inquiries personally. There's no question too big or too small.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== WHAT HAPPENS NEXT ======== -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">The Process</div>
+      <h2 class="section-title">Here's What Happens After You Reach Out</h2>
+      <p class="section-sub">Simple. Clear. No pressure at any step.</p>
+    </div>
+    <div style="max-width:700px;margin:0 auto;" class="reveal">
+      <div class="steps">
+        <div class="step">
+          <div class="step-number-wrap">
+            <div class="step-number">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-title">Schedule or Reach Out</div>
+            <p class="step-text">Book a call using the calendar link, send an email, or fill out the form above. We respond within one business day.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number-wrap">
+            <div class="step-number">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-title">The Discovery Call</div>
+            <p class="step-text">A 30&ndash;45 minute Zoom call where we learn about you and answer every question you have. Zero pressure. Just conversation.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number-wrap">
+            <div class="step-number">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-title">Sit In On A Morning Session</div>
+            <p class="step-text">Optional but highly recommended. Attend one of our live training sessions to experience the culture and see what you'd be walking into every single day.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number-wrap">
+            <div class="step-number">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-title">Make Your Decision</div>
+            <p class="step-text">If you decide Beggins is the right move, we'll start your onboarding immediately. If you need more time or information, we're here for that too.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number-wrap">
+            <div class="step-number">5</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-title">Welcome To The Family</div>
+            <p class="step-text">Within 3&ndash;5 days, your tools are live, your Regional President is introduced, and your morning training sessions begin. Day one of the rest of your career starts now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA FINAL ======== -->
+<section class="cta-banner" data-parallax-section>
+  <div class="cta-banner-bg" data-parallax="0.15"></div>
+  <div class="cta-banner-glow"></div>
+  <div class="container cta-banner-content reveal">
+    <h2>Don't Wait For<br><span class="text-gold">The Perfect Moment.</span></h2>
+    <p>
+      The best time to make a move was a year ago. The second best time is today. 
+      Let's talk about your future &mdash; and build the business you deserve.
+    </p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/mikepuma" target="_blank" class="btn btn-gold btn-lg pulse-glow">Schedule An Interview Now</a>
+      <a href="tel:8137316171" class="btn btn-outline-white btn-lg">Call / Text Mike</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text">CENTURY 21 <span>BEGGINS</span></div>
+        <p class="footer-tagline">BE Empowered. BE Educated. BE Encouraged. Empowering agents and clients to live the Lifestyle of their dreams.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">yt</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <div class="footer-links">
+          <a href="/compensation">Compensation</a>
+          <a href="/training">Training</a>
+          <a href="/technology">Technology</a>
+          <a href="/marketing">Marketing</a>
+          <a href="/culture">Culture</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <div class="footer-links">
+          <a href="/culture#about">About Us</a>
+          <a href="/culture#rp">Regional Presidents</a>
+          <a href="/culture#areas">Service Areas</a>
+          <a href="/contact">Contact Us</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:MikePuma@c21be.com">MikePuma@c21be.com</a>
+          <a href="tel:8137316171">813-731-6171</a>
+          <a href="/contact">Schedule An Interview</a>
+          <a href="/culture#areas">Our 7 Offices</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Century 21 Beggins. All rights reserved. All rights reserved.</p>
+      <p>Tampa Bay &amp; Central Florida &middot; 7 Office Locations</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>

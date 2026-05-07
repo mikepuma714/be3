@@ -4,13 +4,35 @@
     { "src": "**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/compensation", "dest": "/compensation.html" },
-    { "src": "/training", "dest": "/training.html" },
-    { "src": "/technology", "dest": "/technology.html" },
-    { "src": "/marketing", "dest": "/marketing.html" },
-    { "src": "/culture", "dest": "/culture.html" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/signup", "dest": "/signup.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/css/(.*)", "dest": "/css/$1" },
+    { "src": "/js/(.*)", "dest": "/js/$1" },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
+
+    { "src": "/",              "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/index.html" },
+    { "src": "/compensation",  "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/compensation.html" },
+    { "src": "/training",      "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/training.html" },
+    { "src": "/technology",    "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/technology.html" },
+    { "src": "/marketing",     "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/marketing.html" },
+    { "src": "/culture",       "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/culture.html" },
+    { "src": "/contact",       "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/contact.html" },
+    { "src": "/signup",        "has": [{"type":"host","value":"joinc21be3.com"}],     "dest": "/tenants/be3/signup.html" },
+
+    { "src": "/",              "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/index.html" },
+    { "src": "/compensation",  "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/compensation.html" },
+    { "src": "/training",      "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/training.html" },
+    { "src": "/technology",    "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/technology.html" },
+    { "src": "/marketing",     "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/marketing.html" },
+    { "src": "/culture",       "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/culture.html" },
+    { "src": "/contact",       "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/contact.html" },
+    { "src": "/signup",        "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/signup.html" },
+
+    { "src": "/",              "dest": "/tenants/be3/index.html" },
+    { "src": "/compensation",  "dest": "/tenants/be3/compensation.html" },
+    { "src": "/training",      "dest": "/tenants/be3/training.html" },
+    { "src": "/technology",    "dest": "/tenants/be3/technology.html" },
+    { "src": "/marketing",     "dest": "/tenants/be3/marketing.html" },
+    { "src": "/culture",       "dest": "/tenants/be3/culture.html" },
+    { "src": "/contact",       "dest": "/tenants/be3/contact.html" },
+    { "src": "/signup",        "dest": "/tenants/be3/signup.html" }
   ]
 }
