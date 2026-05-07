@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join BE3 &mdash; Start Your Enrollment &mdash; Century 21 BE3</title>
+  <meta name="description" content="Ready to join Florida's #1 Century 21? Select your market and complete your enrollment today.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Signup page custom styles ── */
+    .signup-section {
+      padding: 6rem 0 8rem;
+      background: var(--color-black);
+    }
+
+    .signup-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 4rem;
+      max-width: 520px;
+    }
+
+    .signup-step {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .signup-step.active { color: var(--color-white); }
+    .signup-step.complete { color: var(--color-gold); }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .signup-step.active .step-num {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    .signup-step.complete .step-num {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    .step-connector {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+      margin: 0 1rem;
+      min-width: 40px;
+    }
+
+    /* Market selector card */
+    .market-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+
+    .market-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+
+    .market-select {
+      width: 100%;
+      background: var(--color-dark);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 0.9rem 1.25rem;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23b6a888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.25rem center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .market-select:focus {
+      outline: none;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 2px rgba(182,168,136,0.15);
+    }
+
+    .market-select option { background: #1a1a1a; color: var(--color-white); }
+
+    /* Widget frame */
+    .widget-outer {
+      max-width: 900px;
+      display: none;
+    }
+
+    .widget-outer.visible { display: block; }
+
+    .widget-frame {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .widget-frame-header {
+      height: 4px;
+      background: var(--color-gold);
+      width: 100%;
+    }
+
+    .widget-frame-body {
+      padding: 2.5rem 2.5rem 3rem;
+    }
+
+    .widget-frame-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    .widget-frame-sub {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+    }
+
+    .widget-loading {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--color-muted);
+      font-size: 0.88rem;
+      padding: 3rem 0;
+      justify-content: center;
+    }
+
+    .widget-spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--color-border);
+      border-top-color: var(--color-gold);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .widget-mount { min-height: 300px; }
+
+    /* Note beneath widget */
+    .widget-note {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .widget-note::before {
+      content: '🔒';
+      font-size: 0.9rem;
+    }
+
+    /* Prompt shown before market is selected */
+    .market-prompt {
+      max-width: 900px;
+      border: 1px dashed rgba(182,168,136,0.25);
+      border-radius: 8px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 0.92rem;
+    }
+
+    .market-prompt-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Sidebar info */
+    .signup-layout {
+      display: grid;
+      grid-template-columns: 640px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .signup-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+    }
+
+    .sidebar-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-card-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .signup-layout { grid-template-columns: 1fr; }
+      .signup-sidebar { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .market-card, .widget-frame-body { padding: 1.5rem; }
+      .signup-steps { flex-wrap: wrap; gap: 0.5rem; }
+      .step-connector { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======== NAVIGATION ======== -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="public/images/century%2021%20be3%20(7).png" alt="Century 21 BE3" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="compensation.html">Compensation</a>
+    <a href="training.html">Training</a>
+    <a href="technology.html">Technology</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="culture.html">Culture</a>
+    <a href="contact.html">Contact</a>
+    <a href="signup.html" class="nav-cta active">Join BE3</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="compensation.html">Compensation</a>
+  <a href="training.html">Training</a>
+  <a href="technology.html">Technology</a>
+  <a href="marketing.html">Marketing</a>
+  <a href="culture.html">Culture</a>
+  <a href="signup.html" class="nav-cta-mobile">Join BE3 &rarr;</a>
+</div>
+
+<!-- ======== PAGE HERO ======== -->
+<section class="page-hero" data-parallax-section>
+  <div class="page-hero-bg" data-parallax="0.3"
+    style="background-image: url('public/images/sold.png')">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="page-hero-eyebrow">Start Your Journey</div>
+    <h1>Join<br><span class="text-gold">Century 21 BE3</span></h1>
+    <p class="page-hero-sub">
+      Select your market below and complete your enrollment &mdash; 
+      it only takes a few minutes to get started.
+    </p>
+  </div>
+</section>
+
+<!-- ======== SIGNUP FLOW ======== -->
+<section class="signup-section">
+  <div class="container">
+
+    <!-- Step indicator -->
+    <div class="signup-steps reveal">
+      <div class="signup-step active" id="step1-indicator">
+        <div class="step-num">1</div>
+        <span>Select Your Market</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="signup-step" id="step2-indicator">
+        <div class="step-num">2</div>
+        <span>Complete Enrollment</span>
+      </div>
+    </div>
+
+    <div class="signup-layout">
+      <!-- Main column -->
+      <div>
+        <!-- Step 1: Market selector -->
+        <div class="market-card reveal">
+          <label class="market-label" for="marketSelect">Step 1 &mdash; Choose Your Market</label>
+          <select class="market-select" id="marketSelect">
+            <option value="">Select a market&hellip;</option>
+            <option value="emerald-coast">Emerald Coast</option>
+            <option value="naples-swfl">Naples / Southwest FL</option>
+            <option value="orlando-cfl">Orlando / Central FL</option>
+            <option value="pasco-hernando">Pasco / Hernando County</option>
+            <option value="pensacola">Pensacola</option>
+            <option value="south-florida">South Florida</option>
+          </select>
+        </div>
+
+        <!-- Step 2: Widget area -->
+        <div class="market-prompt reveal" id="marketPrompt">
+          <span class="market-prompt-icon">&#x1F4CD;</span>
+          Select your market above to load your enrollment form.
+        </div>
+
+        <div class="widget-outer reveal" id="widgetOuter">
+          <div class="widget-frame">
+            <div class="widget-frame-header"></div>
+            <div class="widget-frame-body">
+              <div class="widget-frame-title" id="widgetMarketName">Enrollment</div>
+              <div class="widget-frame-sub">Step 2 &mdash; Complete your enrollment below. Payments are processed securely.</div>
+              <div class="widget-loading" id="widgetLoading">
+                <div class="widget-spinner"></div>
+                Preparing your enrollment form&hellip;
+              </div>
+              <div class="widget-mount" id="widgetMount"></div>
+            </div>
+          </div>
+          <div class="widget-note">Secure enrollment powered by PayWhirl. Your information is protected.</div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="signup-sidebar reveal delay-2">
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">What Happens Next?</div>
+          <ul class="feature-list">
+            <li class="feature-item">Complete enrollment &amp; submit payment</li>
+            <li class="feature-item">You&rsquo;ll receive a welcome email with onboarding steps</li>
+            <li class="feature-item">Schedule your onboarding call with your Regional President</li>
+            <li class="feature-item">Get instant access to Beggins University &amp; your tools</li>
+            <li class="feature-item">Start training and close your first deal with us</li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Questions First?</div>
+          <p style="font-size:0.88rem;color:var(--color-muted);line-height:1.7;margin-bottom:1.25rem;">
+            Not ready to enroll yet? Schedule an interview with Mike Puma and the BE3 team first &mdash; no pressure, just a conversation.
+          </p>
+          <a href="contact.html" class="btn btn-outline-white" style="width:100%;justify-content:center;">
+            Schedule An Interview
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">What&rsquo;s Included</div>
+          <ul class="feature-list">
+            <li class="feature-item">90% net commission split</li>
+            <li class="feature-item">No franchise fees</li>
+            <li class="feature-item">Moxi Rise CRM + full tech stack</li>
+            <li class="feature-item">Beggins University &amp; 21 AI tools</li>
+            <li class="feature-item">Daily live training (Mon&ndash;Fri)</li>
+            <li class="feature-item">Complete marketing support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text">CENTURY 21 <span>BE3</span></div>
+        <p class="footer-tagline">BE Empowered. BE Educated. BE Encouraged. Florida's #1 Century 21 Brokerage.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">yt</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <div class="footer-links">
+          <a href="compensation.html">Compensation</a>
+          <a href="training.html">Training</a>
+          <a href="technology.html">Technology</a>
+          <a href="marketing.html">Marketing</a>
+          <a href="culture.html">Culture</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <div class="footer-links">
+          <a href="culture.html#about">About Us</a>
+          <a href="culture.html#areas">Service Areas</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="signup.html">Join BE3</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:MikePuma@c21be.com">MikePuma@c21be.com</a>
+          <a href="contact.html">Schedule An Interview</a>
+          <a href="culture.html#areas">Florida Statewide</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Century 21 BE3. All rights reserved.</p>
+      <p>Florida's #1 Century 21 Brokerage &middot; #12 in the United States</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<!-- PayWhirl loader (loaded once, used for all markets) -->
+<script type="text/javascript" src="https://app.paywhirl.com/pwa.js"></script>
+
+<script>
+  const MARKETS = {
+    'emerald-coast':  { uuid: '0f6794b7-2512-49e5-8609-647c725f754c', id: 'pw_ec',   label: 'Emerald Coast' },
+    'naples-swfl':    { uuid: '5df8ef93-e95d-4c04-bcfd-3f7e72ec8b91', id: 'pw_nsw',  label: 'Naples / Southwest FL' },
+    'orlando-cfl':    { uuid: '138c32a8-047f-4f50-a9df-1fbcfa898bd2', id: 'pw_orl',  label: 'Orlando / Central FL' },
+    'pasco-hernando': { uuid: 'b87eac9d-009d-4ee0-8fe2-69d781d8e694', id: 'pw_psc',  label: 'Pasco / Hernando County' },
+    'pensacola':      { uuid: '1e368adc-aedc-4cae-9ed5-6c8c801029fb', id: 'pw_pen',  label: 'Pensacola' },
+    'south-florida':  { uuid: 'a1ec95c3-0a00-4851-bb08-556b0a4021b2', id: 'pw_sf',   label: 'South Florida' }
+  };
+
+  const select       = document.getElementById('marketSelect');
+  const prompt       = document.getElementById('marketPrompt');
+  const widgetOuter  = document.getElementById('widgetOuter');
+  const widgetMount  = document.getElementById('widgetMount');
+  const widgetLoad   = document.getElementById('widgetLoading');
+  const widgetTitle  = document.getElementById('widgetMarketName');
+  const step1ind     = document.getElementById('step1-indicator');
+  const step2ind     = document.getElementById('step2-indicator');
+
+  function loadMarket(val) {
+    if (!val || !MARKETS[val]) {
+      prompt.style.display = 'block';
+      widgetOuter.classList.remove('visible');
+      step1ind.classList.add('active');
+      step2ind.classList.remove('active');
+      return;
+    }
+
+    const market = MARKETS[val];
+
+    // Show container, hide prompt
+    prompt.style.display = 'none';
+    widgetOuter.classList.add('visible');
+    widgetLoad.style.display = 'flex';
+    widgetMount.innerHTML = '';
+
+    // Update step indicators
+    step1ind.classList.remove('active');
+    step1ind.classList.add('complete');
+    step2ind.classList.add('active');
+
+    // Update widget header name
+    widgetTitle.textContent = market.label + ' \u2014 Enrollment';
+
+    // Create fresh mount div (required by PayWhirl to re-init)
+    const mountDiv = document.createElement('div');
+    mountDiv.id = market.id;
+    widgetMount.appendChild(mountDiv);
+
+    // Small delay so PayWhirl picks up the freshly added DOM node
+    setTimeout(function() {
+      widgetLoad.style.display = 'none';
+      paywhirl('widget', {
+        autoscroll: 1,
+        initial_autoscroll: 0,
+        domain: 'century-21-be3',
+        uuid: market.uuid
+      }, market.id);
+    }, 350);
+
+    // Smooth scroll to widget on mobile
+    if (window.innerWidth < 900) {
+      widgetOuter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  select.addEventListener('change', function() {
+    loadMarket(this.value);
+  });
+
+  // Support ?market=south-florida deep-link
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var m = params.get('market');
+    if (m && MARKETS[m]) {
+      select.value = m;
+      loadMarket(m);
+    }
+  })();
+</script>
+</body>
+</html>

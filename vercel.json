@@ -10,6 +10,7 @@
     { "src": "/marketing", "dest": "/marketing.html" },
     { "src": "/culture", "dest": "/culture.html" },
     { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/signup", "dest": "/signup.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
