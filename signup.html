@@ -137,6 +137,7 @@
 
     .widget-frame-body {
       padding: 2.5rem 2.5rem 3rem;
+      background: var(--color-card);
     }
 
     .widget-frame-title {
@@ -173,7 +174,13 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .widget-mount { min-height: 300px; }
+    .widget-mount {
+      min-height: 300px;
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 1rem;
+      color: #111111;
+    }
 
     /* Note beneath widget */
     .widget-note {
