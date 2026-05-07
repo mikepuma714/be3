@@ -80,6 +80,14 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
 
+/* Responsive 2-column section grid — collapses to 1 col on mobile */
+.split-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
 /* ========================= NAVIGATION ========================= */
 .nav {
   position: fixed;
@@ -1377,13 +1385,17 @@ h4, h5, h6 { font-family: var(--font-body); font-weight: 700; }
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .stat-item:nth-child(3) { border-right: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .split { grid-template-columns: 1fr; }
-  .split-image { height: 50vw; min-height: 350px; position: relative; }
+  /* Switch split to flex so we can use order to force image-first */
+  .split { display: flex; flex-direction: column; }
+  .split .split-image { order: 1; }
+  .split .split-content { order: 2; }
+  .split-image { height: 50vw; min-height: 350px; position: relative; width: 100%; }
   .split-image .split-img-bg { inset: 0; height: 100%; }
   .split-content { padding: 4rem 2rem; }
 }
 
 @media (max-width: 900px) {
+  .split-2col { grid-template-columns: 1fr; gap: 3rem; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
