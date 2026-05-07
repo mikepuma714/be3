@@ -26,6 +26,15 @@
     { "src": "/contact",       "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/contact.html" },
     { "src": "/signup",        "has": [{"type":"host","value":"joinc21beggins.com"}], "dest": "/tenants/beggins/signup.html" },
 
+    { "src": "/",              "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/index.html" },
+    { "src": "/compensation",  "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/compensation.html" },
+    { "src": "/training",      "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/training.html" },
+    { "src": "/technology",    "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/technology.html" },
+    { "src": "/marketing",     "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/marketing.html" },
+    { "src": "/culture",       "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/culture.html" },
+    { "src": "/contact",       "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/contact.html" },
+    { "src": "/signup",        "has": [{"type":"host","value":"www.joinc21beggins.com"}], "dest": "/tenants/beggins/signup.html" },
+
     { "src": "/",              "dest": "/tenants/be3/index.html" },
     { "src": "/compensation",  "dest": "/tenants/be3/compensation.html" },
     { "src": "/training",      "dest": "/tenants/be3/training.html" },
