@@ -133,11 +133,28 @@ function updateMessage(id, content) {
 /* ── Basic markdown-lite renderer ──────────────────────────── */
 function formatContent(text) {
   if (!text) return '<span class="iv-typing"><span></span><span></span><span></span></span>';
-  return text
+
+  // Extract markdown links before HTML escaping so URLs survive intact
+  const links = [];
+  const withPlaceholders = text.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_, label, url) => {
+    const idx = links.length;
+    links.push({ label, url });
+    return `\x00LINK${idx}\x00`;
+  });
+
+  let out = withPlaceholders
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br>');
+
+  // Restore links as styled anchor tags
+  out = out.replace(/\x00LINK(\d+)\x00/g, (_, i) => {
+    const { label, url } = links[+i];
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:var(--color-gold);text-decoration:underline;font-weight:600;">${label}</a>`;
+  });
+
+  return out;
 }
 
 /* ── Auto-scroll ────────────────────────────────────────────── */
