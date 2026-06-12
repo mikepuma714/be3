@@ -1,11 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "**/*",     "use": "@vercel/static" }
+    { "src": "api/interview.js", "use": "@vercel/node" },
+    { "src": "api/lead.js",      "use": "@vercel/node" },
+    { "src": "**/*",             "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/api/interview", "dest": "/api/interview.js" },
+    { "src": "/api/lead",      "dest": "/api/lead.js" },
 
     { "src": "/css/(.*)", "dest": "/css/$1" },
     { "src": "/js/(.*)",  "dest": "/js/$1" },
