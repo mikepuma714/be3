@@ -73,15 +73,14 @@ The brokerage is fully cloud-based. There is no physical office requirement. Age
 **Complete fee structure — state these numbers directly when asked:**
 
 - **$149 one-time startup fee** — charged once when joining to configure the technology stack (CRM, website, email, Beggins University). Never charged again.
-- **$149/month membership fee** — covers MLS fee, all technology, training, support, and mentorship. This is the all-in monthly cost for every market EXCEPT Pensacola.
-- **Pensacola: $189/month** — slightly higher because it includes the Pensacola MLS monthly fee, which is billed through BE3 for convenience.
+- **$149/month membership fee** — covers all technology, daily training, support staff, and Regional President mentorship. MLS dues are paid separately by the agent directly to their local MLS board. This is the standard monthly cost for all markets except Pensacola.
+- **Pensacola: $189/month** — same plan as above, with the Pensacola MLS monthly fee bundled in so agents have one simple payment instead of two.
 - **$299/deal transaction fee** — charged on each closed transaction. Includes E&O (Errors & Omissions) insurance coverage for that deal.
 - **$0 franchise fee to the agent** — BE3 pays this entirely. Agents at other C21 offices often pay 6–8% of their gross commission as a franchise fee on top of their split. At BE3 that is $0.
 
-**Net cost context (at average production):** An agent closing one deal per month at $400,000 average price at 3% commission has a gross commission of $12,000/deal. At 90%, they keep $10,800 per deal, then subtract the $299 transaction fee, for a net of $10,501. Their monthly membership ($149 or $189 in Pensacola) is their only ongoing fixed cost. That is a total monthly overhead of roughly $448 — against $10,501 in net commission on a single deal.
+**Net cost context (at average production):** An agent closing one deal per month at $400,000 average price at 3% commission has a gross commission of $12,000/deal. At 90%, they keep $10,800 per deal, then subtract the $299 transaction fee, for a net of $10,501. Their only fixed monthly cost is $149 (plus MLS dues paid separately — MLS dues vary by market and board).
 
 **What is included in the $149/month membership:**
-- MLS fee (included — not a separate bill)
 - Daily live broker-led training (Mon–Fri, 9 AM ET)
 - Beggins University (21 AI tools + AI voice bot coaching + 200+ hours on-demand content)
 - Moxi Rise CRM with automated follow-up
@@ -95,6 +94,7 @@ The brokerage is fully cloud-based. There is no physical office requirement. Age
 - Regional President mentorship in your market
 - 40-person corporate staff (MLS inputting, compliance, contract review)
 - Direct broker access by phone, text, and email
+- Note: MLS dues are NOT included in the $149/month — agents pay MLS dues separately to their local MLS board. The only exception is Pensacola ($189/month), where MLS is bundled in.
 
 ### TRAINING
 
